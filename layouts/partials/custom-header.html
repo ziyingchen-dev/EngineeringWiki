@@ -1,0 +1,65 @@
+<style>
+#R-sidebar .R-sidebarmenu li {
+  margin: 0.15rem 0;
+}
+
+/* Shared navigation item */
+#R-sidebar .R-sidebarmenu li > a,
+#R-sidebar .R-sidebarmenu li > .padding {
+  box-sizing: border-box;
+  min-height: 2rem;
+  border-radius: 7px;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+/* Folder */
+#R-sidebar .R-sidebarmenu li:has(> ul) > a,
+#R-sidebar .R-sidebarmenu li:has(> ul) > .padding,
+#R-sidebar .R-sidebarmenu li:has(> ul) > a > .padding {
+  color: #294b68;
+  background: linear-gradient(
+    90deg,
+    rgba(47, 128, 209, 0.12),
+    rgba(47, 128, 209, 0.03)
+  );
+  font-weight: 650;
+  cursor: pointer;
+}
+
+/* File */
+#R-sidebar .R-sidebarmenu li:not(:has(> ul)) > a,
+#R-sidebar .R-sidebarmenu li:not(:has(> ul)) > .padding,
+#R-sidebar .R-sidebarmenu li:not(:has(> ul)) > a > .padding {
+  color: #607286;
+  background: transparent;
+  font-weight: 400;
+}
+
+/* Nested navigation */
+#R-sidebar .R-sidebarmenu li:has(> ul) > ul {
+  margin: 0.25rem 0 0.35rem 0.85rem;
+  padding-left: 0.65rem;
+  border-left: 1px solid rgba(67, 136, 199, 0.22);
+}
+
+/* Hover state */
+#R-sidebar .R-sidebarmenu li > a:hover,
+#R-sidebar .R-sidebarmenu li > .padding:hover {
+  color: #1769aa;
+  background: rgba(47, 128, 209, 0.07);
+  transform: translateX(2px);
+}
+
+/* Active page */
+#R-sidebar .R-sidebarmenu li.active > a,
+#R-sidebar .R-sidebarmenu li.active > .padding,
+#R-sidebar .R-sidebarmenu li.active > a > .padding {
+  color: #1769aa;
+  background: rgba(47, 128, 209, 0.14);
+  box-shadow: inset 3px 0 0 #2f80d1;
+  font-weight: 600;
+}
+</style>
