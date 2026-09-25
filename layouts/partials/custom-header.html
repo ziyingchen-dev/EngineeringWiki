@@ -1,0 +1,6 @@
+{{- with partial "asset.gotmpl" "css/custom.css" }}
+<link href="{{ .RelPermalink }}" rel="stylesheet">
+{{- end }}
+{{- with partial "asset.gotmpl" "js/custom.js" }}
+<script src="{{ .RelPermalink }}" defer></script>
+{{- end }}

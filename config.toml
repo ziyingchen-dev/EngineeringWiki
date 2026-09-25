@@ -1,0 +1,23 @@
+baseURL = "https://ziyingchen-dev.github.io/EngineeringWiki/"
+title = "EngineeringWiki"
+theme = "relearn"
+defaultContentLanguage = "en"
+
+[params]
+themeVariant = [
+  "zen-light",
+  "zen-dark"
+]
+
+disableLandingPageButton = false
+disableInlineCopyToClipBoard = false
+collapsibleMenu = true
+alwaysopen = false
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 3
+ordered = false

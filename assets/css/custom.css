@@ -1,0 +1,271 @@
+/* Expand the page content when the sidebar is hidden on wide screens. */
+@media screen and (min-width: 48rem) {
+  body.sidebar-hidden #R-sidebar {
+    display: none;
+  }
+
+  body.sidebar-hidden #R-body {
+    margin-inline-start: 0;
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/*
+ * Article usage:
+ * <span class="term">General term</span>
+ * <span class="term-blue">Blue-emphasis text</span>
+ * <span class="term-red">Red-emphasis text</span>
+ */
+.term,
+.term-blue {
+  font-weight: 600;
+  text-decoration: underline 3px #005A9C;
+  text-underline-offset: 4px;
+}
+
+.term-red {
+  font-weight: 600;
+  text-decoration: underline 3px #D32F2F;
+  text-underline-offset: 4px;
+}
+
+/*
+ * Reference callout usage:
+ * <aside class="reference-box">Reference content with optional <mark>highlight</mark>.</aside>
+ */
+.reference-box {
+  background: #EAF2F8;
+  color: #17202A;
+  border: 2px solid #1F618D;
+  border-left-width: 8px;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.reference-box a {
+  color: #0B4F71;
+  font-weight: 600;
+  text-decoration: underline 2px;
+  text-underline-offset: 3px;
+}
+
+.reference-box mark {
+  background: #FFF9C4;
+  color: #17202A;
+  padding: 0 0.25em;
+  border-radius: 3px;
+}
+
+/*
+ * Article disclosure usage:
+ * <details><summary><strong>Click to expand</strong></summary>Hidden content.</details>
+ *
+ * Theme-consistent styling: subtle border, calm background, and summary header
+ * that reads like a foldable section instead of a loud callout.
+ */
+article.default details {
+  margin: 1.25rem 0;
+  border: 1px solid rgba(90, 76, 63, 0.28);
+  border-radius: 0.75rem;
+  background: rgba(89, 76, 64, 0.04);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+article.default details {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+article.default details table {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  margin: 0;
+  border-collapse: collapse;
+  border: 1px solid rgba(110, 110, 110, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+  table-layout: auto;
+}
+
+article.default details table + table {
+  margin-top: 1rem;
+}
+
+article.default details th,
+article.default details td {
+  border: 1px solid rgba(110, 110, 110, 0.45);
+  padding: 0.9rem 1rem;
+  vertical-align: top;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.6;
+}
+
+article.default details thead th {
+  background: rgba(120, 120, 120, 0.08);
+  font-weight: 700;
+}
+
+article.default details tbody tr:nth-child(even) td {
+  background: rgba(120, 120, 120, 0.03);
+}
+
+article.default details > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  list-style: none;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  font-weight: 700;
+  color: var(--MAIN-TEXT, #1d1d1d);
+  background: rgba(90, 76, 63, 0.06);
+  border-bottom: 1px solid rgba(90, 76, 63, 0.18);
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+article.default details > summary::-webkit-details-marker {
+  display: none;
+}
+
+article.default details > summary::before {
+  content: "▸";
+  font-size: 0.9em;
+  line-height: 1;
+  color: rgba(90, 76, 63, 0.8);
+  transition: transform 0.15s ease;
+}
+
+article.default details[open] > summary {
+  background: rgba(90, 76, 63, 0.1);
+}
+
+article.default details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+article.default details > summary:hover {
+  background: rgba(90, 76, 63, 0.09);
+}
+
+article.default details > summary strong {
+  font-weight: inherit;
+}
+
+article.default details > *:not(summary) {
+  padding: 0.75rem 0.9rem;
+}
+
+/* Style the theme's sidebar navigation hierarchy and active page. */
+#R-sidebar .R-sidebarmenu li {
+  margin: 0.15rem 0;
+}
+
+#R-sidebar .R-sidebarmenu li > a,
+#R-sidebar .R-sidebarmenu li > .padding {
+  box-sizing: border-box;
+  min-height: 2rem;
+  border-radius: 7px;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+#R-sidebar .R-sidebarmenu li:has(> ul) > a,
+#R-sidebar .R-sidebarmenu li:has(> ul) > .padding,
+#R-sidebar .R-sidebarmenu li:has(> ul) > a > .padding {
+  color: #294b68;
+  background: linear-gradient(90deg, rgba(47, 128, 209, 0.12), rgba(47, 128, 209, 0.03));
+  font-weight: 650;
+  cursor: pointer;
+}
+
+#R-sidebar .R-sidebarmenu li:not(:has(> ul)) > a,
+#R-sidebar .R-sidebarmenu li:not(:has(> ul)) > .padding,
+#R-sidebar .R-sidebarmenu li:not(:has(> ul)) > a > .padding {
+  color: #607286;
+  background: transparent;
+  font-weight: 400;
+}
+
+#R-sidebar .R-sidebarmenu li:has(> ul) > ul {
+  margin: 0.25rem 0 0.35rem 0.85rem;
+  padding-left: 0.65rem;
+  border-left: 1px solid rgba(67, 136, 199, 0.22);
+}
+
+#R-sidebar .R-sidebarmenu li > a:hover,
+#R-sidebar .R-sidebarmenu li > .padding:hover {
+  color: #1769aa;
+  background: rgba(47, 128, 209, 0.07);
+  transform: translateX(2px);
+}
+
+#R-sidebar .R-sidebarmenu li.active > a,
+#R-sidebar .R-sidebarmenu li.active > .padding,
+#R-sidebar .R-sidebarmenu li.active > a > .padding {
+  color: #1769aa;
+  background: rgba(47, 128, 209, 0.14);
+  box-shadow: inset 3px 0 0 #2f80d1;
+  font-weight: 600;
+}
+
+/* Glossary shortcode controls and their popover definitions. */
+.glossary-trigger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1769aa;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.glossary-trigger:focus-visible {
+  outline: 2px solid #1769aa;
+  outline-offset: 2px;
+}
+
+.glossary-definition[popover] {
+  position: fixed;
+  inset: auto 1rem 1rem;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: min(28rem, calc(100vw - 2rem));
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #8aa8c2;
+  border-radius: 0.4rem;
+  background: var(--MAIN-BG, #fff);
+  color: var(--MAIN-TEXT, #222);
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 18%);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Expand/collapse controls added to the table of contents. */
+.toc-collapse-toggle {
+  padding: 0 0.35em;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.toc-collapse-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.TableOfContents ul[hidden],
+#TableOfContents ul[hidden] {
+  display: none;
+}
