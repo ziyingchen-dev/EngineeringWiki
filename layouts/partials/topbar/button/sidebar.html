@@ -1,0 +1,12 @@
+{{- with .page }}
+	{{- partial "topbar/func/button.html" (dict
+		"page" .
+		"class" "topbar-button-sidebar"
+		"href" "javascript:toggleSidebar()"
+		"icon" "bars"
+		"onwidths" "show"
+		"onwidthm" "show"
+		"onwidthl" "show"
+		"hint" (printf "%s (CTRL+ALT+n)" (T "Navigation-toggle"))
+	)}}
+{{- end }}
