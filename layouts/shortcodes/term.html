@@ -1,0 +1,2 @@
+{{- $id := printf "kernel-term-%d" .Ordinal -}}
+<button type="button" class="glossary-trigger" popovertarget="{{ $id }}">{{ .Get 0 }}</button><span id="{{ $id }}" class="glossary-definition" popover>{{ .Get 1 }}</span>

@@ -1,0 +1,22 @@
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#TableOfContents li:has(ul)").forEach(item => {
+    item.classList.add("toc-collapsed");
+    const link = item.querySelector(":scope > a");
+    const children = item.querySelector(":scope > ul");
+    if (!link || !children) return;
+    link.setAttribute("aria-expanded", "false");
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      const collapsed = item.classList.toggle("toc-collapsed");
+      link.setAttribute("aria-expanded", String(!collapsed));
+      if (!collapsed) document.querySelector(link.hash)?.scrollIntoView();
+    });
+  });
+});
+</script>
+<style>
+#TableOfContents li.toc-collapsed > ul { display: none; }
+#TableOfContents li:has(> ul) > a::before { content: "▼ "; font-size: .7em; }
+#TableOfContents li.toc-collapsed > a::before { content: "▶ "; }
+</style>
